@@ -34,21 +34,21 @@ Git의 Marge는 두 개의 부모를 가리키는 특별한 커밋을 만들어 
 두 개의 부모가 있는 커밋이라는 것은 " 한 부모의 모든 작업 내역과 나머지 부모의 모든 작업, 그리고 그 두 부모의 모든 부모들의 작업 내역을 포함한다. " 라는
 의미가 있다.
 
-<img src ="https://github.com/SeoJaeWan/Study_Github/blob/master/Git%20%EA%B8%B0%EB%B3%B8/Assets/marge/marge.JPG" width="300px>
+![marge](https://user-images.githubusercontent.com/52366178/90951093-748d5900-e492-11ea-8d5a-8c2be16b106b.JPG)
 
 각 브랜치에 독립된 커밋이 한개씩 있다.
 즉, 지금까지 작업한 내역이 2개의 브랜치에 나눠서 저장되어있단 말이다.
 
 master 브랜치 입장에서 bugFix 브랜치와 master 브랜치를 marge 하면 <code> git merge bugFix </code>
 
-<img src ="https://github.com/SeoJaeWan/Study_Github/blob/master/Git%20%EA%B8%B0%EB%B3%B8/Assets/marge/margeFinish.JPG" width="300px>
+![margeFinish](https://user-images.githubusercontent.com/52366178/90951094-7525ef80-e492-11ea-975f-c1b18a691fef.JPG)
 
 master가 두 부모가 있는 커밋을 가리키고 있다.
 
 마찬가지로 <code> git checkout </code> 명령어를 통해 bugFix로 브랜치를 이동하며 <code> git merge master </code> 하면
 두 브랜치 모두 같은 작업 내역을 포함하게 된다!
 
-<img src ="https://github.com/SeoJaeWan/Study_Github/blob/master/Git%20%EA%B8%B0%EB%B3%B8/Assets/marge/margeFinish2.JPG" width="300px>
+![margeFinish2](https://user-images.githubusercontent.com/52366178/90951095-75be8600-e492-11ea-96da-fa13c2b352d3.JPG)
 
 ## Git 리베이스(Rebase)
 
@@ -57,7 +57,7 @@ master가 두 부모가 있는 커밋을 가리키고 있다.
 
 이렇게 리베이스를 하면 커밋들의 흐름을 보기 좋게 한 줄로 만들 수 있다는 장점이 있다.
 
-<img src ="https://github.com/SeoJaeWan/Study_Github/blob/master/Git%20%EA%B8%B0%EB%B3%B8/Assets/rebase/rebase.JPG" width="300px>
+![rebase](https://user-images.githubusercontent.com/52366178/90951097-7bb46700-e492-11ea-972a-a38ce048a65a.JPG)
 
 또다시 브랜치 두 개가 있다.
 현재 bugFix블랜치가 현재 선택 되어있다.
@@ -67,7 +67,7 @@ bugFix 브랜치에서 작업을 master 브랜치로 직접 옮겨 놓으려고 
 
 <code> git rebase master </code> 명령어를 통해 합치게 되면
 
-<img src ="https://github.com/SeoJaeWan/Study_Github/blob/master/Git%20%EA%B8%B0%EB%B3%B8/Assets/rebase/rebaseFinish.JPG" width="300px>
+![rebaseFinish](https://user-images.githubusercontent.com/52366178/90951098-7c4cfd80-e492-11ea-8844-11a5b341fd21.JPG)
 
 이렇게 bugFix 브랜치의 작업 내용이 master 바로 위에 깔끔한 한 줄 커밋으로 보이게 된다.
 이때 C3 커밋은 어딘가에 아직 남아있고, C3'은 master 위에 올려 놓은 복사본이 된다.
@@ -76,6 +76,6 @@ bugFix 브랜치에서 작업을 master 브랜치로 직접 옮겨 놓으려고 
 
 master 브랜치를 선택한 상태에서 <code> git rebase bugFix </code> 입력하여 리베이스를 하면 된다.
 
-<img src ="https://github.com/SeoJaeWan/Study_Github/blob/master/Git%20%EA%B8%B0%EB%B3%B8/Assets/rebase/rebaseFinish2.JPG" width="300px>
+![rebaseFinish2](https://user-images.githubusercontent.com/52366178/90951099-7ce59400-e492-11ea-8561-a4324bbe6fc6.JPG)
 
 보이는 바와 같이, master가 bugFix의 부모쪽에 있었기 때문에, 단순히 그 브랜치를 앞쪽의 커밋을 가리키게 이동시킨 것이다.
