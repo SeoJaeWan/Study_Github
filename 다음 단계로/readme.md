@@ -13,7 +13,7 @@ HEAD를 분리하는 것은 HEAD를 브랜치 대신 커밋에 붙이는 것을 
 
 HEAD -> master -> C1 이다.
 
-<!-- ![rebase](https://user-images.githubusercontent.com/52366178/90951097-7bb46700-e492-11ea-972a-a38ce048a65a.JPG) -->
+![head](https://user-images.githubusercontent.com/52366178/90977589-84d03180-e581-11ea-806d-1a83751c9e11.JPG)
 
 이것을 <code>git checkout C1</code>을 통해 HEAD를 브랜치대신 커밋에 붙일 수 있다.
 
@@ -41,21 +41,21 @@ Git에서 여기저기 이동할 때 커밋의 해시를 사용하는 방법은 
 
 master 위에 있는 부모를 체크아웃 해 보자면 아래 이미지에서
 
-<!-- ![rebase](https://user-images.githubusercontent.com/52366178/90951097-7bb46700-e492-11ea-972a-a38ce048a65a.JPG) -->
+![relative ref](https://user-images.githubusercontent.com/52366178/90977596-8ef23000-e581-11ea-97d1-c410eeefd600.JPG)
 
 `git checkout master^` 를 입력한다.
 
-<!-- ![rebase](https://user-images.githubusercontent.com/52366178/90951097-7bb46700-e492-11ea-972a-a38ce048a65a.JPG) -->
+![relative ref finish](https://user-images.githubusercontent.com/52366178/90977594-8dc10300-e581-11ea-8f14-abcb3ce4b991.JPG)
 
 Wow! 커밋의 해시를 입력하는 것보다 훨씬 쉬운 방법이다!
 
 브랜치 뿐만아니라 HEAD도 상대 참조를 위해 사용할 수 있다!
 
-<!-- ![rebase](https://user-images.githubusercontent.com/52366178/90951097-7bb46700-e492-11ea-972a-a38ce048a65a.JPG) -->
+![relative ref2](https://user-images.githubusercontent.com/52366178/90977597-8ef23000-e581-11ea-9f9d-1e80f3d0545a.JPG)
 
 여기서 `git checkout C3; git checkout HEAD^; git checkout HEAD^; git checkout HEAD^` 를 하면
 
-<!-- ![rebase](https://user-images.githubusercontent.com/52366178/90951097-7bb46700-e492-11ea-972a-a38ce048a65a.JPG) -->
+![relative ref finish2](https://user-images.githubusercontent.com/52366178/90977595-8e599980-e581-11ea-8ed6-9669e179b6d6.JPG)
 
 이렇게 상위 커밋으로 올라갈 수 있다.
 
@@ -66,11 +66,11 @@ Wow! 커밋의 해시를 입력하는 것보다 훨씬 쉬운 방법이다!
 
 ~ 연산자는 선택적으로 올라가고 싶은 부모의 갯수가 뒤에 숫자로 온다!
 
-<!-- ![rebase](https://user-images.githubusercontent.com/52366178/90951097-7bb46700-e492-11ea-972a-a38ce048a65a.JPG) -->
+![~](https://user-images.githubusercontent.com/52366178/90977615-ac26fe80-e581-11ea-818d-1807dbfc5e67.JPG)
 
 위 커밋 트리에서 4단계 위로 올라가고 싶다면, `git checkout HEAD~4` 를 입력한다!
 
-<!-- ![rebase](https://user-images.githubusercontent.com/52366178/90951097-7bb46700-e492-11ea-972a-a38ce048a65a.JPG) -->
+![~ finish](https://user-images.githubusercontent.com/52366178/90977613-ab8e6800-e581-11ea-97f6-718511286371.JPG)
 
 Wow!!
 
@@ -78,9 +78,12 @@ Wow!!
 
 상대 참조를 사용하는 가장 일반적인 방법은 브랜치를 옮길 때 이다. `-f` 옵션을 이용해서 브랜치를 특정 커밋에 직접적으로 재지정 할 수있다.
 
-<!-- ![rebase](https://user-images.githubusercontent.com/52366178/90951097-7bb46700-e492-11ea-972a-a38ce048a65a.JPG) -->
+![강제로 이동](https://user-images.githubusercontent.com/52366178/90977618-acbf9500-e581-11ea-9f4f-218c82656c6c.JPG)
 
 `git branch -f master HEAD~3` 이렇게 하면 master 브랜치를 HEAD에서 세 번 강제로 뒤로 옮길 수 있다.!
+
+![강제로 이동 finishJPG](https://user-images.githubusercontent.com/52366178/90977617-acbf9500-e581-11ea-8809-d8477cd789c4.JPG)
+
 상대 참조를 통해 C1을 간결한 방법으로 참조할 수 있고, 브랜치 강제(-f)를 통해 브랜치를 빠르게 뒤로 이동 시킬 수 있다.
 
 ### Git에서 작업 되돌리기
@@ -100,9 +103,11 @@ Git에서 변경한 내용을 되돌리는 방법은 크게 두 가지 있다.
 
 즉, `git reset`은 애초에 커밋하지 않은 것처럼 예전 커밋으로 브랜치를 옮기는 것이다.
 
-<!-- ![rebase](https://user-images.githubusercontent.com/52366178/90951097-7bb46700-e492-11ea-972a-a38ce048a65a.JPG) -->
+![git reset](https://user-images.githubusercontent.com/52366178/90977639-cfea4480-e581-11ea-95cc-d4589f6d4b00.JPG)
 
 여기서 `git reset HEAD~1`을 입력해보자!
+
+![git reset finish](https://user-images.githubusercontent.com/52366178/90977637-cf51ae00-e581-11ea-9eb3-386595b01c85.JPG)
 
 그림처럼 master 브랜치가 가리키던 커밋을 C1으로 다시 옮겼다! 이러면 로컷 저장소에서 C2 커밋이 아에 없었던 것 같은 상태가 된다.
 
@@ -112,11 +117,11 @@ Git에서 변경한 내용을 되돌리는 방법은 크게 두 가지 있다.
 
 변경분을 되돌리고, 이 되돌린 내용을 다른 사람과 <em>공유하기</em>위해서는, `git revert`를 써야한다.
 
-<!-- ![rebase](https://user-images.githubusercontent.com/52366178/90951097-7bb46700-e492-11ea-972a-a38ce048a65a.JPG) -->
+![git revert](https://user-images.githubusercontent.com/52366178/90977643-de386080-e581-11ea-94bb-e7973c851f10.JPG)
 
 여기서 `git rever HEAD`를 쓴다면
 
-<!-- ![rebase](https://user-images.githubusercontent.com/52366178/90951097-7bb46700-e492-11ea-972a-a38ce048a65a.JPG) -->
+![git revert finish](https://user-images.githubusercontent.com/52366178/90977662-0b850e80-e582-11ea-8218-f9d951f9f10e.JPG)
 
 어색하게도, 되돌리려고한 커밋의 아래에 새로운 커밋이 생긴다.
 C2`라는 새로운 커밋에 변경내용이 기록되는데, 이 변경내역은 C2 커밋 내용의 반대되는 내용이다.
