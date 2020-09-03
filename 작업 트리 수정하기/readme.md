@@ -11,7 +11,7 @@
 
 현재 위치(HEAD) 아래에 있는 일련의 커밋들에 대한 복사본을 만들겠다는 것을 줄인 것이다.
 
-<!-- 주소 -->
+![cherry-pick](https://user-images.githubusercontent.com/52366178/92064349-4edc4a00-edd8-11ea-9394-6a20e4b0a46a.JPG)
 
 위와 같은 repository가 있다. `master`와 master로 복사하고 싶은 작업이 있는 브랜치 `side`가 있다.
 해당 작업은 rebase를 통해 할 수도 있다.
@@ -32,7 +32,7 @@ git rebase side
 
 `git cherry-pick C2 C4`
 
-<!-- 주소 -->
+![cherry-pick finish](https://user-images.githubusercontent.com/52366178/92064351-500d7700-edd8-11ea-823b-c93f6ce17bd0.JPG)
 
 `C2`와`C4`의 커밋을 master로 보내기 위해서 위와같이 아주 간단하게 수행할 수 있다.
 
